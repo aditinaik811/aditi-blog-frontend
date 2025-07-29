@@ -1,0 +1,28 @@
+.card{
+    display: flex;
+    margin-top: 10px;
+    background-color: white;
+    padding:5px;
+    align-items: center;
+    width: 100%;
+    box-shadow: 2px 2px 5px royalblue;
+    border-radius: 10px;
+    
+}
+
+.cat-image{
+ border-radius: 10px;
+ box-shadow: 5px 5px 10px black;
+ margin-left: 10%;
+}
+
+
+
+.smBtn{
+    border: none;
+    outline: none;
+    padding:5px;
+    margin-left:10px;
+    border-radius: 5px;
+    color:white;
+}

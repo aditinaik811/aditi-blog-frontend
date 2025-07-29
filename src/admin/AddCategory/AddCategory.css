@@ -1,0 +1,19 @@
+.categoryContainer{
+   
+    width:100%;
+}
+
+.categoryForm{
+    width:40%;
+
+}
+.submitButton{
+    width:100%;
+    border:none;
+    outline: none;
+    border-radius: 10px;
+    background-color: purple;
+    color: white;
+    height: 50px;
+    width:100%;
+}

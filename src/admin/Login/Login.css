@@ -1,0 +1,67 @@
+*{
+    box-sizing: border-box;
+}
+
+.loginContainer{
+    height: 100vh;
+    width:100%;
+    background-color: #212837;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.LoginBox{
+    width:30%;
+    background-color: #EEE;
+    border-radius: 10px;
+    padding:20px;
+    box-shadow: 5px 5px 5px blue;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+input{
+    width:100%;
+    padding:5px;
+    margin-top:10px;
+    height:45px;
+    width:100%;
+    border:none;
+    outline: line;
+    border-radius: 10px;
+    font-size: 18px;
+}
+
+.submitBtn{
+    background-color: purple;
+    color: white;
+    height: 50px;
+    width:100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding:5px;
+    margin-top:10px;
+    height:45px;
+   
+    border:none;
+    outline: line;
+    border-radius: 10px;
+    font-size: 18px;
+}
+
+.aditiImage{
+    height: 10%;
+    width:20%;
+    border-radius: 50%;
+}
+
+
+@media screen and (max-width:700px) {
+    .LoginBox
+    {
+        width: 90%;
+    }
+}
