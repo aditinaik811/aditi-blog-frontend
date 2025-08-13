@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import '../UserHome/UserHome.css'
 import axios from 'axios'
 import Footer from '../Footer/Footer'
-
+const API = process.env.REACT_APP_BASE_URL
 const UserHome = () => {
   const[category,setCategory]=useState([])
   const[blogs,setBlogs]=useState([])
