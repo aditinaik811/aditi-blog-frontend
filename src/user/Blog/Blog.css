@@ -1,0 +1,53 @@
+*{
+    margin:0px;
+    padding:0px;
+    box-sizing: border-box;
+}
+
+.main-container{
+    display: flex;
+    width:100%;
+
+}
+.b-container{
+    width: 80%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    border-right: 1px solid black;
+    
+
+}
+.c-container{
+    width: 20%;
+    height:100vh;
+    background-color: #eee;
+    padding: 10px;
+}
+.blog-box{
+    width:25vw;
+    height:25vw;
+    box-shadow: 5px 5px 10px;
+    overflow: hidden;
+    margin:10px;
+    padding: 15px;
+}
+.b-image{
+    width: 100%;
+    height:15vw;
+}
+.b-title{
+    font-size: 1vw;
+}
+.c-button{
+    width: 95%;
+    height: 50px;
+    border: none;
+    outline: none;
+    text-align: left;
+    margin-top: 10px;
+    padding: 5px;
+}
+.c-button:hover{
+
+}

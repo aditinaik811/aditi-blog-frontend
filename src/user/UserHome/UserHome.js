@@ -60,7 +60,7 @@ const UserHome = () => {
           }
         </div>
 
-        {/* ************Latest Category************ */}
+        {/* ************Latest Blogs************ */}
         <h1 className='heading'>Latest Blog</h1>
         <div className='blog-container'>
           {
