@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import './Blog.css'
 import axios from 'axios'
+const API = process.env.REACT_APP_BASE_URL
 const Blog = () => {
 
   const[category,setCategory]=useState([])
@@ -14,7 +15,7 @@ const Blog = () => {
 
 
   const getCategory = ()=>{
-    axios.get('http://localhost:3000/category')
+    axios.get(`${API}/category`)
     .then(result=>{
       console.log(result)
       setCategory(result.data.category)
@@ -25,7 +26,7 @@ const Blog = () => {
   }
 
   const getBlog = ()=>{
-    axios.get('http://localhost:3000/blog/')
+    axios.get(`${API}/blog/`)
     .then(result=>{
       console.log(result)
       setBlogs(result.data.blog)
@@ -38,7 +39,7 @@ const Blog = () => {
 
   const getBlogByCategory=(cat)=>{
      
-    axios.get('http://localhost:3000/blog/category/'+cat)
+    axios.get(`${API}/blog/category/`+cat)
     .then(result=>{
       console.log(result)
       setBlogs(result.data.blog)

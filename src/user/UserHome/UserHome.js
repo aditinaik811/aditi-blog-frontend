@@ -13,7 +13,7 @@ const UserHome = () => {
 
 
   const getCategory = ()=>{
-    axios.get('http://localhost:3000/category/latest-category/3')
+    axios.get(`${API}/category/latest-category/3`)
     .then(result=>{
       console.log(result)
       setCategory(result.data.Category)
@@ -24,7 +24,7 @@ const UserHome = () => {
   }
 
   const getBlog = ()=>{
-    axios.get('http://localhost:3000/blog/latest-post/4')
+    axios.get(`${API}/blog/latest-post/4`)
     .then(result=>{
       console.log(result)
       setBlogs(result.data.Blog)

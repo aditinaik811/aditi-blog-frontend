@@ -12,6 +12,7 @@ import { useLocation, useNavigate} from "react-router-dom";
 import 'react-quill/dist/quill.snow.css';
 import ReactQuill from "react-quill";
 import CircularProgress from '@mui/material/CircularProgress';
+const API = process.env.REACT_APP_BASE_URL
 const AddNewBlog = () => {
 
 
@@ -37,7 +38,7 @@ const AddNewBlog = () => {
   }, []);
 
   const getCategory = ()=>{
-    axios.get('http://www.localhost:3000/category')
+    axios.get(`${API}/category`)
     .then(res=>{
       console.log(res.data.category);
       setCategoryList(res.data.category);
@@ -69,7 +70,7 @@ const AddNewBlog = () => {
       await uploadBytes(myRef, file);
       const uploadedImageUrl = await getDownloadURL(myRef);
       console.log(uploadedImageUrl);
-      axios.post("http://www.localhost:3000/blog", {
+      axios.post(`${API}/blog`, {
           title:blogName,
           category: categoryName,
           description:blog,
@@ -89,7 +90,7 @@ const AddNewBlog = () => {
         });
     } else {
       if (file == null) {
-        axios.put('http://www.localhost:3000/blog/'+location.state.myData._id, {
+        axios.put(`${API}/`+location.state.myData._id, {
             title:blogName,
             category: categoryName,
             description:blog,
@@ -111,7 +112,7 @@ const AddNewBlog = () => {
       await uploadBytes(myRef, file);
       const uploadedImageUrl = await getDownloadURL(myRef);
       console.log(uploadedImageUrl);
-      axios.put("http://www.localhost:3000/blog/"+location.state.myData._id, {
+      axios.put(`${API}/blog/`+location.state.myData._id, {
           title:blogName,
           category: categoryName,
           description:blog,
