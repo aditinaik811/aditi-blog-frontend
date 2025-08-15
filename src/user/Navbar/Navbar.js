@@ -21,7 +21,7 @@ const Navbar = () => {
         <Link className={location.pathname==='/about'?'links-active':'links'}  to='/about'>About</Link>
         <Link className={location.pathname==='/contact'?'links-active':'links'}  to='/contact'>Contact</Link>
         
-        {!isLogin && <Link className='links' to='/login'>Login</Link>}
+        {!isLogin && <Link className={location.pathname==='/login'?'links-active':'links'} to='/login'>Login</Link>}
         <Link className={location.pathname==='/signup'?'links-active':'links'}  to='/signup'>Signup</Link>
         {isLogin && <Link className={location.pathname==='/logout'?'links-active':'links'}  onClick={() => {
           localStorage.clear();

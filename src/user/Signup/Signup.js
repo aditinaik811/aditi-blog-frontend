@@ -26,7 +26,6 @@ const SignUp = () => {
       })
       .then((res) => {
         console.log("Signup successful:", res.data);
-        alert("Signup successful! Please log in.");
         navigate("/login");
       })
       .catch((err) => {

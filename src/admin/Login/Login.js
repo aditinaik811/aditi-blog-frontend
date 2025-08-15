@@ -40,6 +40,7 @@ const Login = () => {
         <form onSubmit={submitHandler} className='LoginBox'>
           <img className='aditiImage' src={require('../../assets/Aditi.jpg')} alt='Aditi-Image'/>
           <h1 align="center">Aditi Blog App</h1>
+          <h1 align="center">Admin</h1>
           
           <input onChange ={(e)=>{setUserName(e.target.value)}} placeholder='username'/>
           <input onChange ={(e)=>{setPassword(e.target.value)}} type="password" placeholder='password'/>

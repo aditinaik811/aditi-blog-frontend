@@ -8,6 +8,10 @@ const Blog = () => {
   const[category,setCategory]=useState([])
   const[blogs,setBlogs]=useState([])
   const navigate = useNavigate();
+  const[blogLoading,setBlogLoading]=useState(false)
+  const[categoryLoading,setCategoryLoading] = useState(false)
+
+  
   
 
   useEffect(()=>{
@@ -18,24 +22,32 @@ const Blog = () => {
 
   
   const getCategory = ()=>{
+    setCategoryLoading(true);
     axios.get(`${API}/category`)
+    
     .then(result=>{
       console.log(result)
       setCategory(result.data.category)
+      setCategoryLoading(false)
     })
     .catch(err=>{
       console.log(err)
+      setCategoryLoading(false)
+
     })
   }
 
   const getBlog = ()=>{
+    setBlogLoading(true)
     axios.get(`${API}/blog/`)
     .then(result=>{
       console.log(result)
       setBlogs(result.data.blog)
+      setBlogLoading(false)
     })
     .catch(err=>{
       console.log(err)
+      setBlogLoading(false)
     })
   }
 
@@ -46,9 +58,11 @@ const Blog = () => {
     .then(result=>{
       console.log(result)
       setBlogs(result.data.blog)
+     
     })
     .catch(err=>{
       console.log(err)
+       
     })
   }
 
@@ -62,7 +76,7 @@ const Blog = () => {
   return (
     <div className='main-container'>
       <div className='b-container'>
-  {blogs.map((data) => (
+  {!blogLoading && blogs.map((data) => (
     <div 
       className="blog-box" 
       key={data._id} 
@@ -73,6 +87,10 @@ const Blog = () => {
       <p className='b-title'>{data.title}</p>
     </div>
   ))}
+  {blogLoading &&
+    <img src={require('../../assets/loader.gif')}/>
+
+    }
 </div>
 
 <div className='c-container'>
@@ -81,15 +99,21 @@ const Blog = () => {
     <button className="c-button" onClick={getBlog}>
       All Category List
     </button>
-    {category.map((data) => (
+    {!categoryLoading && category.map((data) => (
       <button 
         key={data._id} 
-        onClick={() => getBlogByCategory(data.name)} 
+        onClick={() => getBlogByCategory(data.name) } 
         className='c-button'
       >
         {data.name}
       </button>
     ))}
+    {categoryLoading &&
+    <div style={{display:'flex',justifyContent:'center',alignItems:'center'}}>
+  <img src={require('../../assets/loader.gif')} alt="Loading..." />
+  </div>
+
+    }
   </div>
 </div>
     </div>

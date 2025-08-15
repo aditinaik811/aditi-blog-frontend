@@ -15,9 +15,9 @@ const Contact = () => {
 
         <div className="social-icons">
          
-          <a href="#" target="_blank" rel="noopener noreferrer" className="icon-placeholder"><FaInstagram/>Instagram</a>
-          <a href="#" target="_blank" rel="noopener noreferrer" className="icon-placeholder"><FaLinkedin/>LinkedIn</a>
-          <a href="#" target="_blank" rel="noopener noreferrer" className="icon-placeholder"><FaGithub/>GitHub</a>
+          <a href="https://www.instagram.com/aditi_naik811?igsh=MTl2Nm94cjVpdDd2MA==" target="_blank" rel="noopener noreferrer" className="icon-placeholder"><FaInstagram/>Instagram</a>
+          <a href="https://www.linkedin.com/in/aditi-naik-667aa1318/" target="_blank" rel="noopener noreferrer" className="icon-placeholder"><FaLinkedin/>LinkedIn</a>
+          <a href="https://github.com/aditinaik811" target="_blank" rel="noopener noreferrer" className="icon-placeholder"><FaGithub/>GitHub</a>
           <a href="#" target="_blank" rel="noopener noreferrer" className="icon-placeholder"><FaTwitter/>Twitter</a>
           <a href="#" target="_blank" rel="noopener noreferrer" className="icon-placeholder"><FaFacebook/>Facebook</a>
         </div>

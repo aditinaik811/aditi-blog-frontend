@@ -6,30 +6,39 @@ const API = process.env.REACT_APP_BASE_URL
 const UserHome = () => {
   const[category,setCategory]=useState([])
   const[blogs,setBlogs]=useState([])
+  const[blogloading,setBlogLoading]=useState(false)
+  const[categoryLoading,setCategoryLoading] = useState(false)
   useEffect(()=>{
     getCategory();
     getBlog();
   },[])
 
 
-  const getCategory = ()=>{
-    axios.get(`${API}/category/latest-category/3`)
-    .then(result=>{
-      console.log(result)
-      setCategory(result.data.Category)
+  const getCategory = () => {
+  setCategoryLoading(true);
+  axios.get(`${API}/category/latest-category/3`)
+    .then(result => {
+      setCategory(result.data.Category); 
+      setCategoryLoading(false);        
+      console.log(result);
     })
-    .catch(err=>{
-      console.log(err)
-    })
-  }
+    .catch(err => {
+      setCategoryLoading(false);
+      console.error(err);
+    });
+};
 
   const getBlog = ()=>{
+    setBlogLoading(true)
     axios.get(`${API}/blog/latest-post/4`)
     .then(result=>{
+      
       console.log(result)
       setBlogs(result.data.Blog)
+      setBlogLoading(false)
     })
     .catch(err=>{
+      setBlogLoading(false)
       console.log(err)
     })
   }
@@ -50,7 +59,7 @@ const UserHome = () => {
 {/* ************Latest Category*********** */}
         <h1 className='heading'>Latest Categories</h1>
         <div className='category-container'>
-          {
+          {!categoryLoading &&
             category.map(data=>(
               <div style={{display:'flex',flexDirection:'column',justifyContent:'center',width:'25%',alignItems:'center'}} key={data._id}>
                 <img className='category-image' src={data.imageUrl}/>
@@ -58,12 +67,15 @@ const UserHome = () => {
                 </div>
             ))
           }
+          {categoryLoading &&
+            <img src={require('../../assets/loader.gif')}/>
+          }
         </div>
 <hr></hr>
         {/* ************Latest Blogs************ */}
         <h1 className='heading'>Latest Blogs</h1>
         <div className='blog-container'>
-          {
+          {!blogloading &&
             blogs.map(data=>(
               <div className="blog"key={data._}>
                 <img className='blog-image' src={data.imageUrl} alt='blog'/>
@@ -71,6 +83,9 @@ const UserHome = () => {
                 <p className='blog-title'>{data.title}</p>
               </div>
             ))
+          }
+          {blogloading &&
+            <img src={require('../../assets/loader.gif')}/>
           }
         </div>
           <Footer/>

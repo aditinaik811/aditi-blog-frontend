@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./UserLogin.css";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 
 const API = process.env.REACT_APP_BASE_URL;
@@ -74,8 +74,14 @@ const Login = () => {
             textDecoration: "none",
           }}
         >
-          New here? Sign up
+          New User? Sign up
+
+        
         </a>
+        <Link style={{
+            color: "goldenrod",
+            marginTop: "5px",
+            textDecoration: "none" ,marginTop:'10px',fontWeight:'bold'}} to="/admin/login">Admin? Login Here</Link>
       </form>
     </div>
   );
