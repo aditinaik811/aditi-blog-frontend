@@ -9,6 +9,7 @@ import {
 import { app } from "../../firebase";
 import axios from "axios";
 import { useLocation, useNavigate } from "react-router-dom";
+const API = process.env.REACT_APP_BASE_URL
 
 const AddCategory = () => {
   const [categoryName, setCategoryName] = useState("");
@@ -44,7 +45,7 @@ const AddCategory = () => {
       const uploadedImageUrl = await getDownloadURL(myRef);
       console.log(uploadedImageUrl);
       axios
-        .post("http://www.localhost:3000/category", {
+        .post(`${API}/category`, {
           name: categoryName,
           imageUrl: uploadedImageUrl,
         })
@@ -57,7 +58,7 @@ const AddCategory = () => {
         });
     } else {
       if (file == null) {
-        axios.put('http://www.localhost:3000/category/'+location.state.myData._id, {
+        axios.put(`${API}category`+location.state.myData._id, {
             name: categoryName,
             imageUrl: location.state.myData.imageUrl,
           })
@@ -77,7 +78,7 @@ const AddCategory = () => {
       await uploadBytes(myRef, file);
       const uploadedImageUrl = await getDownloadURL(myRef);
       console.log(uploadedImageUrl);
-      axios.put("http://www.localhost:3000/category/"+location.state.myData._id, {
+      axios.put(`${API}/category/`+location.state.myData._id, {
           name: categoryName,
           imageUrl: uploadedImageUrl,
         })

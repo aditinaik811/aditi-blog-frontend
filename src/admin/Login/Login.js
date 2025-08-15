@@ -3,6 +3,7 @@ import '../Login/Login.css';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import CircularProgress from '@mui/material/CircularProgress';
+const API = process.env.REACT_APP_BASE_URL
 const Login = () => {
   const [userName,setUserName] = useState('');
   const [password,setPassword] = useState('');
@@ -15,7 +16,7 @@ const Login = () => {
     event.preventDefault();
     setIsLoading(true)
     console.log(userName,password);
-    axios.post('http://www.localhost:3000/auth/admin/login',{
+    axios.post(`${API}/auth/admin/login`,{
       userName:userName,
       password:password
     })

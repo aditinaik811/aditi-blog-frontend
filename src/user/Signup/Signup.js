@@ -1,12 +1,12 @@
 import React, { useState } from "react";
-import "./UserLogin.css";
+import "./Signup.css";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
 const API = process.env.REACT_APP_BASE_URL;
 
-const Login = () => {
-  const [formData, setFormData] = useState({ email: "", password: "" });
+const SignUp = () => {
+  const [formData, setFormData] = useState({ fullName: "", email: "", password: "" });
   const [error, setError] = useState("");
   const navigate = useNavigate();
 
@@ -19,30 +19,36 @@ const Login = () => {
     setError("");
 
     axios
-      .post(`${API}/auth/user/login`, {
+      .post(`${API}/auth/user/signup`, {
+        fullName: formData.fullName,
         email: formData.email,
         password: formData.password,
       })
       .then((res) => {
-        console.log("Login successful:", res.data);
-
-        localStorage.setItem("email", res.data.email);
-        localStorage.setItem("name", res.data.fullName);
-        localStorage.setItem("token", res.data.token);
-
-        navigate("/"); 
+        console.log("Signup successful:", res.data);
+        alert("Signup successful! Please log in.");
+        navigate("/login");
       })
       .catch((err) => {
-        console.error("Login error:", err);
-        setError("Invalid email or password");
+        console.error("Signup error:", err);
+        setError("Signup failed. Try again.");
       });
   };
 
   return (
-    <div className="loginContainer">
-      <form className="LoginBox" onSubmit={handleSubmit}>
-        <h1>Login</h1>
+    <div className="signupContainer">
+      <form className="signupBox" onSubmit={handleSubmit}>
+        <h2>Create an Account</h2>
         {error && <p style={{ color: "red" }}>{error}</p>}
+
+        <input
+          type="text"
+          name="fullName"
+          placeholder="Full Name"
+          value={formData.fullName}
+          onChange={handleChange}
+          required
+        />
 
         <input
           type="email"
@@ -62,23 +68,21 @@ const Login = () => {
           required
         />
 
-        <button type="submit" className="submitBtn">
-          Login
-        </button>
+        <button type="submit" className="signupBtn">Sign Up</button>
 
         <a
-          href="/signup"
+          href="/login"
           style={{
             color: "white",
             marginTop: "5px",
             textDecoration: "none",
           }}
         >
-          New here? Sign up
+          Already a User? Login Here
         </a>
       </form>
     </div>
   );
 };
 
-export default Login;
+export default SignUp;

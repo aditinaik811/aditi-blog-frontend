@@ -7,13 +7,13 @@
 .navbar{
     height: 100px;
     width: 100%;
-    background-color: rgb(156, 139, 139);
+    background:linear-gradient(to right,black ,rgb(14, 14, 116),rgb(197, 39, 65));
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
     padding:5px;
-
+ 
 }
 
 .menu{
@@ -21,21 +21,28 @@
     display: flex;
     flex-direction: row;
     justify-content: space-around;
+    
+
+}
+.links-active{
+    text-decoration:underline;
+    font-weight: bold;
+    color: goldenrod;
 
 }
 
 .links{
     text-decoration: none;
     text-transform: capitalize;
-    font-size: 0.8vw;
-}
-.logo{
-    width:150px;
-    height: 80px;
-    background-color: rgb(2, 44, 30);
+    font-size: 1vw;
     color: white;
-    border-radius: 50%;
-    padding:5px;
+    font-weight: bold;
+}
+.myLogo{
+   
+
+    color: white;
+   
 }
 
 @media screen and (max-width:750px) {

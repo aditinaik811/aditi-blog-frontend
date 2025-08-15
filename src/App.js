@@ -16,6 +16,9 @@ import About from './user/About/About';
 import Contact from './user/Contact/Contact';
 import Blog from '../src/user/Blog/Blog';
 import UserLogin from './user/UserLogin/UserLogin';
+import BlogView from '../src/user/BlogView/BlogView';
+import Signup from './user/Signup/Signup';
+
 
 
 const router = createBrowserRouter([
@@ -25,7 +28,9 @@ const router = createBrowserRouter([
     {path:'about',element:<About/>},
     {path:'contact',element:<Contact/>},
     {path:'blog',element:<Blog/>},
-    {path:'login',element:<UserLogin/>}
+    {path:'blog-view',element:<BlogView/>},
+    {path:'login',element:<UserLogin/>},
+    {path:'signup',element:<Signup/>}
   ]},
   {path:'admin', element:<AdminLayout/>,children:[
     {path:'login',element:<Login/>},
@@ -38,7 +43,7 @@ const router = createBrowserRouter([
       {path:'comment',element:<CommentList/>},
       {path:'edit-category',element:<AddCategory key="edit" mode="edit"/>},
       {path:'edit-blog',element:<AddNewBlog key="edit-blog" mode="edit-blog"/>}
-
+     
     ]}
 ]}
 ])

@@ -50,4 +50,116 @@
 }
 .c-button:hover{
 
+} 
+
+
+
+
+.b-container {
+    width: 80%;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); 
+    padding: 20px;
+    margin-left: 0;
 }
+
+
+.blog-box {
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(8px);
+    border-radius: 12px;
+    overflow: hidden;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.blog-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.6);
+}
+
+/* Blog Image */
+.b-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+/* Category Tag */
+.b-category {
+    font-size: 0.9rem;
+    color: #ffcccb;
+    margin-top: 8px;
+    font-style: italic;
+}
+
+/* Blog Title */
+.b-title {
+    font-size: 1rem;
+    font-weight: bold;
+    margin-top: 5px;
+    color: #fff;
+}
+
+/* Sidebar Container - Fixed */
+.c-container {
+    width: 20%;
+    height: 100vh;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 15px;
+    border-left: 1px solid rgba(255, 255, 255, 0.2);
+    position: fixed;
+    right: 0;
+    top: 15vh;
+    overflow-y: auto;
+}
+
+.c-container h3 {
+    text-align: center;
+    margin-bottom: 15px;
+    font-size: 1.2rem;
+    color: #ffcccb;
+}
+
+.c-button {
+    width: 95%;
+    height: 45px;
+    border: none;
+    outline: none;
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    text-align: left;
+    margin-top: 10px;
+    padding: 10px;
+    border-radius: 6px;
+    transition: background 0.3s ease, transform 0.2s ease;
+    cursor: pointer;
+}
+
+.c-button:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateX(5px);
+}
+
+
+@media screen and (max-width: 768px) {
+    .main-container {
+        flex-direction: column;
+    }
+    .b-container {
+        width: 100%;
+        grid-template-columns: 1fr;
+    }
+    .c-container {
+        position: relative;
+        width: 100%;
+        height: auto;
+        border-left: none;
+        margin-top: 20px;
+    }
+} 

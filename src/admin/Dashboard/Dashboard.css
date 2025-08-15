@@ -8,13 +8,16 @@
     background-color: rgb(194,214,237)(127,95,95);
     display: flex;
     flex-direction: row;
+    position: fixed;
     /* hinga matar please check kar haaa aditi */
-    overflow: hidden;
+   
 }
 
 .sideNav{
     width:18%;
-    background-color: #212837; 
+    background-color: #212837;
+    position: relative;
+    
 }
 
 .logoContainer{
@@ -29,7 +32,7 @@
 
 .logo{
     width:50%;
-    border-radius: 50%;
+    border-radius: 50%;object-fit: fill;
 
 }
 
@@ -62,6 +65,9 @@
 /******************main Content*******************/
 .mainContent{
     padding: 20px;
-    background-color: rgb(154, 227, 232);
+  background: linear-gradient(to right, #d9e7ff, #a3cfff, #70bfff);
+
     width:82%;
+    overflow: auto;
+
 }

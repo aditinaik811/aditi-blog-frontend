@@ -4,6 +4,7 @@ import '../CommentList/CommentList.css';
 import { deleteObject, getStorage,ref as storageRef } from 'firebase/storage';
 import {app} from '../../firebase';
 import { useNavigate } from 'react-router-dom';
+const API = process.env.REACT_APP_BASE_URL
 const CommentList = () => {
 const [comments,setComments] = useState([]);
 const navigate = useNavigate();
@@ -14,7 +15,7 @@ const navigate = useNavigate();
   },[])
   
   const getComment = ()=>{
-    axios.get('http://www.localhost:3000/comment')
+    axios.get(`${API}/comment`)
     .then(res=>{
       console.log(res.data.comments);
       setComments(res.data.comments);
@@ -27,7 +28,7 @@ const navigate = useNavigate();
 
   const deleteComment = (commentId) => {
   if (window.confirm("Are you sure you want to delete?")) {
-    axios.delete('http://localhost:3000/comment/'+commentId)
+    axios.delete(`${API}/comment/`+commentId)
           .then((res) => {
             console.log(res);
             getComment();

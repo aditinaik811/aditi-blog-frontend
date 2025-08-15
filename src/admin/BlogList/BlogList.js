@@ -7,14 +7,14 @@ import { useNavigate } from 'react-router-dom';
 const BlogList = () => {
 const [blogs,setBlogs] = useState([]);
 const navigate = useNavigate();
-
+const API = process.env.REACT_APP_BASE_URL
   
   useEffect(()=>{
     getBlogs();
   },[])
   
   const getBlogs = ()=>{
-    axios.get('http://www.localhost:3000/blog')
+    axios.get(`${API}/blog`)
     .then(res=>{
       console.log(res.data.blog);
       setBlogs(res.data.blog.reverse());
@@ -29,30 +29,29 @@ const navigate = useNavigate();
   if (window.confirm("Are you sure you want to delete?")) {
     const storage = getStorage(app);
 
-    // ✅ Extract the path directly from the download URL
     const imageUrl = blogData.imageUrl;
     const start = imageUrl.indexOf("/o/") + 3;
     const end = imageUrl.indexOf("?alt=");
     const encodedPath = imageUrl.slice(start, end);
-    const decodedPath = decodeURIComponent(encodedPath); // Final usable path
+    const decodedPath = decodeURIComponent(encodedPath); 
 
     if (!decodedPath) {
       console.error("Invalid image URL format.");
       return;
     }
 
-    const myRef = storageRef(storage, decodedPath); // ✅ Now it points to the real file
+    const myRef = storageRef(storage, decodedPath); 
 
     deleteObject(myRef)
       .then(() => {
-        axios.delete(`http://localhost:3000/blog/${blogData._id}`,{
+        axios.delete(`${API}/blog/${blogData._id}`,{
           headers:{
             Authorization:"Bearer "+localStorage.getItem('token')
           }
-        })//hinga palay haa aditi at 7:39
+        })
           .then((res) => {
             console.log("Deleted:", res.data);
-            getBlogs(); // Refresh the category list
+            getBlogs(); 
           })
           .catch((err) => {
             console.error("Backend deletion failed:", err);

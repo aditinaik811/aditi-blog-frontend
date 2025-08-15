@@ -38,17 +38,17 @@ const UserHome = () => {
   return (
     <div>
         <div className='banner'>
-          <div style={{width:'50%'}}>
-              <img className="banner-logo"src={require('../../assets/logo.jpg')}  />
+          <div className="banner-logo">
+              <img src={require('../../assets/ARN_Blog.png')}  />
           </div>
           <div>
-            <p className='welcome'>Welcome to</p>
-            <h1 className='home-heading'>Aditi Ravindra Naik Blog</h1>
+            
+            <h1 className='home-heading'>Welcome to Aditi Ravindra Naik's Blog</h1>
           </div>
         </div>
-
+<hr></hr>
 {/* ************Latest Category*********** */}
-        <h1 className='heading'>Latest Category</h1>
+        <h1 className='heading'>Latest Categories</h1>
         <div className='category-container'>
           {
             category.map(data=>(
@@ -59,9 +59,9 @@ const UserHome = () => {
             ))
           }
         </div>
-
+<hr></hr>
         {/* ************Latest Blogs************ */}
-        <h1 className='heading'>Latest Blog</h1>
+        <h1 className='heading'>Latest Blogs</h1>
         <div className='blog-container'>
           {
             blogs.map(data=>(
